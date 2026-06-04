@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
 // OneSignal Initialization
 OneSignal.getDebug().setLogLevel(LogLevel.VERBOSE);
-OneSignal.initWithContext(this, "746526dd-2d75-4fe4-acce-a4a664897958);
+OneSignal.initWithContext(this, "746526dd-2d75-4fe4-acce-a4a664897958");
 OneSignal.getNotifications().requestPermission(true, Continue.with(r -> {}));
 
         // Handle splash screen
