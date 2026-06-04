@@ -17,8 +17,8 @@
 
 plugins {
 	id 'com.android.application'
+id 'com.onesignal.androidsdk'
 }
-
 def getSwvProperties() {
 	def properties = new Properties()
 	def propertiesFile = file('src/main/assets/swv.properties')
@@ -67,6 +67,7 @@ android {
 }
 
 dependencies {
+	implementation 'com.onesignal:OneSignal-[5.0.0, 6.0.0]'
 	testImplementation 'junit:junit:4.13.2'
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 
