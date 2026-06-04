@@ -144,6 +144,8 @@
 		<meta-data
 			android:name="com.google.android.gms.ads.APPLICATION_ID"
 			android:value="@string/admob_app_id"/>
-
+<meta-data
+    android:name="onesignal_app_id"
+    android:value="746526dd-2d75-4f2e-acce-a4a664897958" />
 	</application>
 </manifest>
