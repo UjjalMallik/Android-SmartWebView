@@ -101,9 +101,12 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 
 import mgks.os.swv.plugins.QRScannerPlugin;
+import com.onesignal.OneSignal;
+import com.onesignal.debug.LogLevel;
+import com.onesignal.Continue;
 
 /**
- * Main Activity for Smart WebView
+ * Main Activity for Smart WebView 
  * Handles WebView configuration, lifecycle events and user interactions
  */
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -163,6 +166,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         super.onCreate(savedInstanceState);
+// OneSignal Initialization
+OneSignal.getDebug().setLogLevel(LogLevel.VERBOSE);
+OneSignal.initWithContext(this, "746526dd-2d75-4f2e-acce-a4a664897958");
+OneSignal.getNotifications().requestPermission(true, Continue.with(r -> {}));
 
         // Handle splash screen
         final SplashScreen splashScreen = androidx.core.splashscreen.SplashScreen.installSplashScreen(this);
