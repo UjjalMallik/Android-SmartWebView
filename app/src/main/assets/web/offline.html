@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EUB 39 Batch - Offline Mode</title>
     <style>
-        /* প্রিমিয়াম গুগল ফন্টস */
+        /* প্রিমিয়াম গুগল ফন্টস */
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,35 +21,16 @@
 
         /* হেডার ডিজাইন */
         .header-sec {
-            padding: 40px 20px 30px;
             text-align: center;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            background: rgba(255, 255, 255, 0.02);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
             margin-bottom: 25px;
         }
         
-        /* স্প্ল্যাশ ইমেজের স্টাইল */
+        /* স্প্ল্যাশ ইমেজের স্টাইল (ফুল স্ক্রিন ফিক্সড) */
         .splash-banner {
             width: 100%;
-            max-width: 300px;
             height: auto;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .header-sec h1 {
-            font-size: 22px;
-            background: linear-gradient(90deg, #facc15, #fb923c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            font-weight: 700;
+            display: block;
+            margin-bottom: 25px;
         }
         
         .header-sec p.status {
@@ -66,7 +47,7 @@
         }
         
         .header-sec p.msg {
-            font-size: 14px; color: #cbd5e1; line-height: 1.6; padding: 0 10px;
+            font-size: 14px; color: #cbd5e1; line-height: 1.6; padding: 0 15px;
         }
 
         .container { padding: 0 15px; max-width: 500px; margin: 0 auto; }
@@ -128,14 +109,10 @@
 <body>
 
     <div class="header-sec">
-        <picture>
-            <source srcset="swv_splash_white.png" media="(prefers-color-scheme: dark)">
-            <img src="swv_splash.png" alt="EUB 39 Splash" class="splash-banner">
-        </picture>
+        <img src="swv_splash.png" alt="EUB 39 Splash" class="splash-banner">
         
-        <h1>EUB 39 Batch (B-Section) (CIVIL)</h1>
         <p class="status">● অফলাইন মোড</p>
-        <p class="msg">আপনার নেটওয়ার্ক কানেকশন চেক দিন, ডাটা না থাকলে রিচার্জ করুন নয়তো আশেপাশের কারও কাছ থেকে হটস্পট কানেকশন নিন।</p>
+        <p class="msg">আপনার নেটওয়ার্ক কানেকশন চেক দিন, ডাটা না থাকলে রিচার্জ করুন নয়তো আশেপাশের কারও কাছ থেকে হটস্পট কানেকশন নিন।</p>
     </div>
 
     <div class="container">
