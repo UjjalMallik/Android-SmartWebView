@@ -1,31 +1,15 @@
-name: Android Build
+- name: Rename APK to EUB39B
+        run: |
+          mv app/build/outputs/apk/release/*.apk app/build/outputs/apk/release/EUB39B.apk || true
+          mv app/build/outputs/apk/debug/*.apk app/build/outputs/apk/debug/EUB39B.apk || true
 
-on:
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: gradle
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-
-    - name: Build APK with Gradle
-      run: ./gradlew assembleDebug
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: EUB39B-App
-        path: app/build/outputs/apk/debug/app-debug.apk
+      - name: Upload APK to Latest Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "EUB 39 Batch Latest Build"
+          files: |
+            app/build/outputs/apk/release/EUB39B.apk
+            app/build/outputs/apk/debug/EUB39B.apk
