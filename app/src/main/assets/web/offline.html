@@ -5,74 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EUB 39 Batch - Offline Mode</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: #1e293b; /* ডার্ক থিম */
-            color: #f8fafc;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            padding-bottom: 30px;
-            text-align: center;
-        }
-        .header-sec {
-            padding: 40px 20px 20px;
-        }
-        .icon { font-size: 50px; margin-bottom: 15px; }
-        .header-sec h1 { font-size: 20px; color: #facc15; margin-bottom: 10px; }
-        .header-sec p { font-size: 14px; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px; }
+        /* প্রিমিয়াম গুগল ফন্টস */
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
 
-        .container { padding: 15px; max-width: 500px; margin: 0 auto; text-align: left; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            /* ডার্ক স্পেস ব্যাকগ্রাউন্ড */
+            background: radial-gradient(circle at top right, #1e293b, #020617);
+            background-attachment: fixed;
+            color: #f8fafc;
+            font-family: 'Poppins', 'Hind Siliguri', sans-serif;
+            padding-bottom: 40px;
+        }
+
+        /* হেডার ডিজাইন */
+        .header-sec {
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 25px;
+        }
+        
+        /* স্প্ল্যাশ ইমেজের স্টাইল */
+        .splash-banner {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-sec h1 {
+            font-size: 22px;
+            background: linear-gradient(90deg, #facc15, #fb923c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-sec p.status {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .header-sec p.msg {
+            font-size: 14px; color: #cbd5e1; line-height: 1.6; padding: 0 10px;
+        }
+
+        .container { padding: 0 15px; max-width: 500px; margin: 0 auto; }
 
         .section-title {
-            font-size: 16px;
-            color: #38bdf8;
-            margin: 20px 0 10px 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            font-size: 14px; color: #94a3b8; margin: 30px 0 20px; text-align: center; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; justify-content: center;
+        }
+        .section-title::before, .section-title::after {
+            content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); margin: 0 10px;
         }
 
-        /* Routine Cards Design */
+        /* রুটিনের গ্লাস কার্ড */
         .day-card {
-            background-color: #0f172a;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 12px;
-            border-left: 4px solid #3b82f6;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
         }
-        .day-name {
-            font-size: 15px;
-            font-weight: bold;
-            color: #facc15;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 5px;
+        
+        .day-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+        .card-thu::before { background: #10b981; box-shadow: 0 0 15px #10b981; }
+        .card-fri::before { background: #3b82f6; box-shadow: 0 0 15px #3b82f6; }
+        .card-sat::before { background: #f59e0b; box-shadow: 0 0 15px #f59e0b; }
+
+        .day-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;
         }
-        .slot {
-            display: table;
-            width: 100%;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
+        .day-name { font-size: 17px; font-weight: 700; color: #f8fafc; }
+        
+        .day-badge { font-size: 11px; padding: 4px 10px; border-radius: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-online { background: rgba(16, 185, 129, 0.1); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .badge-offline { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+
+        .slot { display: flex; align-items: flex-start; margin-bottom: 14px; }
         .slot:last-child { margin-bottom: 0; }
-        .time { display: table-cell; width: 35%; color: #94a3b8; font-weight: 500; }
-        .subject { display: table-cell; width: 65%; color: #e2e8f0; }
+        
+        /* টাইমলাইন ডিজাইন আপডেট */
+        .time { width: 125px; flex-shrink: 0; font-size: 11.5px; color: #94a3b8; font-weight: 600; text-align: right; padding-right: 15px; position: relative; padding-top: 3px; }
+        .time::after { content: ''; position: absolute; right: -3px; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #64748b; }
+        
+        .subject { flex-grow: 1; padding-left: 15px; font-size: 13.5px; color: #e2e8f0; font-weight: 500; border-left: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; line-height: 1.4; }
+        
+        /* রুম নাম্বারের নতুন ডিজাইন */
+        .room-no { flex-shrink: 0; margin-left: 10px; font-size: 11px; font-weight: 700; color: #fbbf24; background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(251, 191, 36, 0.2); height: fit-content; margin-top: 2px; }
+
+        /* ডেভেলপার ক্রেডিট সেকশন */
+        .dev-credit { margin-top: 45px; padding: 25px 20px; text-align: center; background: rgba(56, 189, 248, 0.04); border-radius: 16px; border: 1px dashed rgba(56, 189, 248, 0.25); margin-bottom: 15px; backdrop-filter: blur(5px); }
+        .dev-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); margin-bottom: 18px; object-fit: cover; }
+        .dev-name { font-size: 17px; color: #f8fafc; font-weight: 700; margin-bottom: 10px; font-family: 'Segoe UI', Roboto, sans-serif; letter-spacing: 0.5px; }
+        .dev-name span { background: linear-gradient(90deg, #38bdf8, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .dev-msg { font-size: 13.5px; color: #94a3b8; line-height: 1.6; font-family: 'Segoe UI', Roboto, sans-serif; padding: 0 10px; }
     </style>
 </head>
 <body>
 
     <div class="header-sec">
-        <div class="icon">📡</div>
+        <picture>
+            <source srcset="swv_splash_white.png" media="(prefers-color-scheme: dark)">
+            <img src="swv_splash.png" alt="EUB 39 Splash" class="splash-banner">
+        </picture>
+        
         <h1>EUB 39 Batch (B-Section) (CIVIL)</h1>
-        <p>আপনি এখন অফলাইনে আছেন</p>
-        <p>আপনার নেটওয়ার্ক কানেকশন চেক দিন, ডাটা না থাকলে রিচার্জ করুন নয়তো আশেপাশের কারও কাছ থেকে হটস্পট কানেকশন নিন।</p>
+        <p class="status">● অফলাইন মোড</p>
+        <p class="msg">আপনার নেটওয়ার্ক কানেকশন চেক দিন, ডাটা না থাকলে রিচার্জ করুন নয়তো আশেপাশের কারও কাছ থেকে হটস্পট কানেকশন নিন।</p>
     </div>
 
     <div class="container">
         <div class="section-title">📅 অফলাইন ব্যাকআপ রুটিন</div>
 
-        <div class="day-card" style="border-left-color: #10b981;">
-            <div class="day-name">Thursday (Online)</div>
+        <div class="day-card card-thu">
+            <div class="day-header">
+                <div class="day-name">Thursday</div>
+                <div class="day-badge badge-online">Online</div>
+            </div>
             <div class="slot">
                 <div class="time">05:30 - 06:20 PM</div>
                 <div class="subject">CE-213: Mechanics of Solids II</div>
@@ -91,61 +164,66 @@
             </div>
         </div>
 
-        <div class="day-card" style="border-left-color: #3b82f6;">
-            <div class="day-name">Friday (In Person)</div>
+        <div class="day-card card-fri">
+            <div class="day-header">
+                <div class="day-name">Friday</div>
+                <div class="day-badge badge-offline">In Person</div>
+            </div>
             <div class="slot">
-                <div class="time">09.00 - 10.40 AM</div>
+                <div class="time">09:00 - 10:40 AM</div>
                 <div class="subject">Engineering Geology & Geomorphology</div>
-                <div class="Room No">315</div>
+                <div class="room-no">315</div>
             </div>
             <div class="slot">
-                <div class="time">10.50 - 12.30 PM</div>
-                <div class="subject">Computer Fundamental(Lab)</div>
-                <div class="Room No">520</div>
-            </div>
-<div class="slot">
-                <div class="time">03.00 - 04.40 PM</div>
-                <div class="subject">Mechanics of Solid 2</div>
-                <div class="Room No">315</div>
+                <div class="time">10:50 - 12:30 PM</div>
+                <div class="subject">Computer Fundamental (Lab)</div>
+                <div class="room-no">520</div>
             </div>
             <div class="slot">
-                <div class="time">04.50 - 06.30 PM</div>
-                <div class="subject">Computer Programming Sessional(Lab)</div>
-                <div class="Room No">520</div>
+                <div class="time">03:00 - 04:40 PM</div>
+                <div class="subject">Mechanics of Solid II</div>
+                <div class="room-no">315</div>
+            </div>
+            <div class="slot">
+                <div class="time">04:50 - 06:30 PM</div>
+                <div class="subject">Computer Programming Sessional (Lab)</div>
+                <div class="room-no">520</div>
             </div>
              <div class="slot">
-                <div class="time">06.50 - 08.30 PM</div>
-                <div class="subject">Civil Engineering Materials(Lab)</div>
-                <div class="Room No">315</div>
+                <div class="time">06:50 - 08:30 PM</div>
+                <div class="subject">Civil Engineering Materials (Lab)</div>
+                <div class="room-no">315</div>
             </div>
         </div>
 
-        <div class="day-card" style="border-left-color: #f59e0b;">
-            <div class="day-name">Saturday (In Person)</div>
+        <div class="day-card card-sat">
+            <div class="day-header">
+                <div class="day-name">Saturday</div>
+                <div class="day-badge badge-offline">In Person</div>
+            </div>
             <div class="slot">
-                <div class="time">05.30 - 07.10 PM</div>
+                <div class="time">05:30 - 07:10 PM</div>
                 <div class="subject">Numerical Method</div>
-                <div class="Room No">315</div>
+                <div class="room-no">315</div>
             </div>
             <div class="slot">
-                <div class="time">07.20 - 09.00 PM</div>
+                <div class="time">07:20 - 09:00 PM</div>
                 <div class="subject">Math-3</div>
-                <div class="Room No">315</div>
+                <div class="room-no">315</div>
+            </div>
+        </div>
+
+        <div class="dev-credit">
+            <img src="ujjal.jpeg" alt="Ujjal Mallik" class="dev-img">
+            <div class="dev-name">
+                This app developed by <span>Ujjal Mallik</span>
+            </div>
+            <div class="dev-msg">
+                Hope this app makes our class management system a little easier.<br>
+                If you find it helpful, please keep me in your prayers! 🤲
             </div>
         </div>
     </div>
-<div style="margin-top: 45px; padding: 25px 20px; text-align: center; background: rgba(56, 189, 248, 0.04); border-radius: 16px; border: 1px dashed rgba(56, 189, 248, 0.25); margin-bottom: 15px; backdrop-filter: blur(5px);">
-        
-        <img src="ujjal.jpeg" alt="Ujjal Mallik" style="width: 110px; height: 110px; border-radius: 50%; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); margin-bottom: 18px; object-fit: cover;">
-        
-        <div style="font-size: 17px; color: #f8fafc; font-weight: 700; margin-bottom: 10px; font-family: 'Segoe UI', Roboto, sans-serif; letter-spacing: 0.5px;">
-            This app developed by <span style="color: #38bdf8; background: linear-gradient(90deg, #38bdf8, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Ujjal Mallik</span>
-        </div>
-        
-        <div style="font-size: 13.5px; color: #94a3b8; line-height: 1.6; font-family: 'Segoe UI', Roboto, sans-serif; padding: 0 10px;">
-            Hope this app makes our class management system a little easier.<br>
-            If you find it helpful, please keep me in your prayers! 🤲
-        </div>
-    </div>
+
 </body>
 </html>
