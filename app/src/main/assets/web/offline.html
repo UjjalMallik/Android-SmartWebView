@@ -1,23 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline - EUB 39 Batch (B-Section)</title>
+    <title>EUB 39 Batch - Offline Mode</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #1e293b; color: #f8fafc; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; }
-        .container { padding: 20px; }
-        h1 { color: #facc15; margin-bottom: 10px; }
-        p { color: #cbd5e1; font-size: 16px; line-height: 1.5; }
-        .icon { font-size: 50px; margin-bottom: 20px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #1e293b; /* ডার্ক থিম */
+            color: #f8fafc;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+        .header-sec {
+            padding: 40px 20px 20px;
+        }
+        .icon { font-size: 50px; margin-bottom: 15px; }
+        .header-sec h1 { font-size: 20px; color: #facc15; margin-bottom: 10px; }
+        .header-sec p { font-size: 14px; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px; }
+
+        .container { padding: 15px; max-width: 500px; margin: 0 auto; text-align: left; }
+
+        .section-title {
+            font-size: 16px;
+            color: #38bdf8;
+            margin: 20px 0 10px 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Routine Cards Design */
+        .day-card {
+            background-color: #0f172a;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .day-name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #facc15;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 5px;
+        }
+        .slot {
+            display: table;
+            width: 100%;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        .slot:last-child { margin-bottom: 0; }
+        .time { display: table-cell; width: 35%; color: #94a3b8; font-weight: 500; }
+        .subject { display: table-cell; width: 65%; color: #e2e8f0; }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <div class="header-sec">
         <div class="icon">📡</div>
         <h1>EUB 39 Batch (B-Section) (CIVIL)</h1>
         <p>আপনি এখন অফলাইনে আছেন</p>
-        <p>আপনার নেটওয়ার্ক কানেকশন চেক দিন, ডাটা না থাকলে রিচার্জ করুন নয়তো আসেপাশের কারও কাছ থেকে হটস্পট কানেকশন নিন।</p>
+        <p>আপনার নেটওয়ার্ক কানেকশন চেক দিন, ডাটা না থাকলে রিচার্জ করুন নয়তো আশেপাশের কারও কাছ থেকে হটস্পট কানেকশন নিন।</p>
     </div>
+
+    <div class="container">
+        <div class="section-title">📅 অফলাইন ব্যাকআপ রুটিন</div>
+
+        <div class="day-card" style="border-left-color: #10b981;">
+            <div class="day-name">Thursday (Online)</div>
+            <div class="slot">
+                <div class="time">05:30 - 06:20 PM</div>
+                <div class="subject">CE-213: Mechanics of Solids II</div>
+            </div>
+            <div class="slot">
+                <div class="time">06:30 - 07:20 PM</div>
+                <div class="subject">CE-205: Numerical Methods</div>
+            </div>
+            <div class="slot">
+                <div class="time">07:30 - 08:20 PM</div>
+                <div class="subject">CE-203: Engineering Geology</div>
+            </div>
+            <div class="slot">
+                <div class="time">08:30 - 09:20 PM</div>
+                <div class="subject">MTH-205: Differential Equations</div>
+            </div>
+        </div>
+
+        <div class="day-card" style="border-left-color: #3b82f6;">
+            <div class="day-name">Friday (In Person)</div>
+            <div class="slot">
+                <div class="time">03:00 - 04:30 PM</div>
+                <div class="subject">CE-211: Fluid Mechanics</div>
+            </div>
+            <div class="slot">
+                <div class="time">04:30 - 06:00 PM</div>
+                <div class="subject">CE-201: Structural Analysis I</div>
+            </div>
+        </div>
+
+        <div class="day-card" style="border-left-color: #f59e0b;">
+            <div class="day-name">Saturday (Online)</div>
+            <div class="slot">
+                <div class="time">07:00 - 08:30 PM</div>
+                <div class="subject">CE-209: Construction Materials</div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
